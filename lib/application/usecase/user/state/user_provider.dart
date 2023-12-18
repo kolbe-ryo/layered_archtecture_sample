@@ -4,4 +4,6 @@ import 'package:riverpod/riverpod.dart';
 class CurrentUser extends Notifier<User?> {
   @override
   User? build() => null;
+
+  set setUser(User? user) => state = user?.copyWith();
 }
