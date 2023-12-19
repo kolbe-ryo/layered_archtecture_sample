@@ -17,4 +17,8 @@ class UserUsecase {
         );
     _ref.read(uidProvider.notifier).update((_) => userId);
   }
+
+  Future<void> signIn() async {}
+
+  Future<void> register() async {}
 }
