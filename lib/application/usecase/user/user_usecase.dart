@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
 import 'package:riverpod/riverpod.dart';
@@ -30,5 +32,11 @@ class UserUsecase {
     _ref.read(userProvider.notifier).setUser = user;
   }
 
-  Future<void> register() async {}
+  Future<void> register({
+    required String? uid,
+    required String userName,
+    required File? image,
+  }) async {
+    if (uid == null) return;
+  }
 }
