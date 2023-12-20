@@ -18,7 +18,17 @@ class UserUsecase {
     _ref.read(uidProvider.notifier).update((_) => userId);
   }
 
-  Future<void> signIn() async {}
+  Future<void> signIn({
+    required String email,
+    required String password,
+  }) async {
+    final user = await _ref.read(userRepositoryProvider).signIn(
+          email: email,
+          password: password,
+        );
+    _ref.read(uidProvider.notifier).update((_) => user.id);
+    _ref.read(userProvider.notifier).setUser = user;
+  }
 
   Future<void> register() async {}
 }
