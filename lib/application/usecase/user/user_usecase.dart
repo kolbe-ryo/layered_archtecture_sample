@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
+import 'package:layered_archtecture_sample/domain/service/storage_service.dart';
+import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
 import 'package:riverpod/riverpod.dart';
 
@@ -38,5 +40,14 @@ class UserUsecase {
     required File? image,
   }) async {
     if (uid == null) return;
+
+    final imageUrl = await _ref.read(storageServiceProvider).uploadImage(image: image);
+    final user = User(
+      id: uid,
+      userName: userName,
+      imageUrl: imageUrl,
+    );
+    final updatedUser = await _ref.read(userRepositoryProvider).register(user: user);
+    _ref.read(userProvider.notifier).setUser = updatedUser;
   }
 }
