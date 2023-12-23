@@ -38,6 +38,7 @@ class PostUsecase {
             createdAt: DateTime.now(),
           ),
         );
+    // TODO: ここはStateNotifierとか使えば明示的に更新する必要はないのではないか？
     // 明示的にリフレッシュしたい時にコール
     _ref.invalidate(postProvider);
   }
