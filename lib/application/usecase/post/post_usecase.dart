@@ -38,6 +38,7 @@ class PostUsecase {
             createdAt: DateTime.now(),
           ),
         );
+    // 明示的にリフレッシュしたい時にコール
     _ref.invalidate(postProvider);
   }
 
