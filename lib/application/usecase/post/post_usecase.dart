@@ -1,11 +1,14 @@
 import 'dart:io';
 
+import 'package:layered_archtecture_sample/application/usecase/post/state/post_provider.dart';
 import 'package:layered_archtecture_sample/domain/app_exception.dart';
 import 'package:layered_archtecture_sample/domain/post/entity/post.dart';
 import 'package:layered_archtecture_sample/domain/post/post_repository.dart';
 import 'package:layered_archtecture_sample/domain/service/storage_service.dart';
 import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:riverpod/riverpod.dart';
+
+final postUsecaseProvider = Provider<PostUsecase>(PostUsecase.new);
 
 class PostUsecase {
   PostUsecase(this._ref);
@@ -35,10 +38,13 @@ class PostUsecase {
             createdAt: DateTime.now(),
           ),
         );
+    _ref.invalidate(postProvider);
   }
 
   /// 投稿の全件取得処理
   ///
   /// 取得後に作成日時が新しい順に並び替える
-  Future<List<Post>> fetchAll() async {}
+  Future<List<Post>> fetchAll() async {
+    final posts = await _ref.read(postRepositoryProvider).fetchAll();
+  }
 }
