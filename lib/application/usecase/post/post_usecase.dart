@@ -48,5 +48,9 @@ class PostUsecase {
   /// 取得後に作成日時が新しい順に並び替える
   Future<List<Post>> fetchAll() async {
     final posts = await _ref.read(postRepositoryProvider).fetchAll();
+    return posts
+      ..sort(
+        (a, b) => b.createdAt!.compareTo(a.createdAt!),
+      );
   }
 }
