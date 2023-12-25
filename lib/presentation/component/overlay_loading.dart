@@ -10,7 +10,12 @@ class OverlayLoading extends ConsumerWidget {
     final isLoading = ref.watch(overlayLoadingProvider);
     return Visibility(
       visible: isLoading,
-      child: Placeholder(),
+      child: const ColoredBox(
+        color: Colors.black26,
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      ),
     );
   }
 }
