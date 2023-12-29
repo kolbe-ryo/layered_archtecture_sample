@@ -12,6 +12,10 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container();
+    final index = :
+    return Scaffold(
+      body: _children[index],
+      bottomNavigationBar: BottomNavigationBar(),
+    );
   }
 }
