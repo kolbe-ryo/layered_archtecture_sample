@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:layered_archtecture_sample/enum/index_mode.dart';
+import 'package:layered_archtecture_sample/presentation/page/post/post_view_page.dart';
+import 'package:layered_archtecture_sample/presentation/page/user/profile_page.dart';
 
 final currentIndexProvider = StateProvider<int>((ref) => IndexMode.list.index);
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key})
-      : _children = [
-          const PostViewPage(),
-          const ProfilePage(),
+      : _children = const [
+          PostViewPage(),
+          ProfilePage(),
         ];
 
   final List<Widget> _children;
