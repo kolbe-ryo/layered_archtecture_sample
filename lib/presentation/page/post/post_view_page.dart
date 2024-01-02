@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:layered_archtecture_sample/enum/index_mode.dart';
 import 'package:layered_archtecture_sample/presentation/page/components/post_view.dart';
 import 'package:layered_archtecture_sample/presentation/page/post/post_page.dart';
 
-class PostViewPage extends ConsumerWidget {
+class PostViewPage extends StatelessWidget {
   const PostViewPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(IndexMode.list.label),
