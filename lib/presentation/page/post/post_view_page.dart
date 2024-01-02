@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:layered_archtecture_sample/enum/index_mode.dart';
+import 'package:layered_archtecture_sample/presentation/page/components/post_view.dart';
 import 'package:layered_archtecture_sample/presentation/page/post/post_page.dart';
 
 class PostViewPage extends ConsumerWidget {
@@ -13,7 +14,7 @@ class PostViewPage extends ConsumerWidget {
         title: Text(IndexMode.list.label),
         automaticallyImplyLeading: false,
       ),
-      body: Container(),
+      body: const PostView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
