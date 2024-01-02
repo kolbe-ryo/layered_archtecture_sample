@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:layered_archtecture_sample/presentation/component/overlay_loading.dart';
+import 'package:layered_archtecture_sample/presentation/page/theme.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/signin_page.dart';
 
 class App extends ConsumerWidget {
@@ -11,7 +12,7 @@ class App extends ConsumerWidget {
     return MaterialApp(
       title: 'SNS',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(), // TODO: Theme setting
+      theme: ref.watch(themeProvider),
       home: const SignInPage(),
       // builderを使用するとNavigatorの上に、Widgetを配置することができる
       // 従って、今回だとisLoading（OverlayLoadingの内部実装）がtrueの時には、ローディング画面がどこの画面にいても
