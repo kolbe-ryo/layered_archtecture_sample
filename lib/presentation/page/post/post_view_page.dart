@@ -13,7 +13,10 @@ class PostViewPage extends ConsumerWidget {
         automaticallyImplyLeading: false,
       ),
       body: Container(),
-      floatingActionButton: FloatingActionButton(onPressed: ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.photo_camera),
+      ),
     );
   }
 }
