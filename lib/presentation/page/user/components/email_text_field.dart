@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final signinEmailControllerProvider = StateProvider.autoDispose<TextEditingController>(
+  (ref) => TextEditingController(),
+);
+
+final signupEmailControllerProvider = StateProvider.autoDispose<TextEditingController>(
+  (ref) => TextEditingController(),
+);
 
 /// Email アドレス入力用テキストフィールド
 class EmailTextField extends StatelessWidget {
