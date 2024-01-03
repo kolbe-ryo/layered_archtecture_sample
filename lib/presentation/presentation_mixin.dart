@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layered_archtecture_sample/domain/app_exception.dart';
 import 'package:layered_archtecture_sample/presentation/component/custom_snackbar.dart';
 
 mixin PresentationMixin {
@@ -14,7 +15,7 @@ mixin PresentationMixin {
         scaffoldMessenger,
         message: successMessage,
       );
-    } catch (e) {
+    } on AppException catch (e) {
       CustomSnackBar.showSuccess(
         scaffoldMessenger,
         message: e.toString(),
