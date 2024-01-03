@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+/// Email アドレス入力用テキストフィールド
+class EmailTextField extends StatelessWidget {
+  const EmailTextField({
+    required this.controller,
+    super.key,
+  });
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return TextField(
+      controller: controller,
+      decoration: const InputDecoration(
+        labelText: 'メールアドレス',
+      ),
+      keyboardType: TextInputType.emailAddress,
+    );
   }
 }
