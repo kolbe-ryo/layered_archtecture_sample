@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
+// TODO: userImageを取得した方が良くない？
 final selectedImageProvider = StateProvider.autoDispose<File?>((_) => null);
 
 class UserImageEdit extends ConsumerWidget {
