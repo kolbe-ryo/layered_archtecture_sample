@@ -13,6 +13,10 @@ class HomePage extends ConsumerWidget {
           ProfilePage(),
         ];
 
+  static Route<void> route() {
+    return MaterialPageRoute(builder: (_) => const HomePage());
+  }
+
   final List<Widget> _children;
 
   @override
