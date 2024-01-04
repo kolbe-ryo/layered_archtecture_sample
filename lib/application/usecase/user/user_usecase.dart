@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
 import 'package:layered_archtecture_sample/domain/service/storage_service.dart';
 import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
-import 'package:riverpod/riverpod.dart';
+
+final userUsecaseProvider = Provider<UserUsecase>(UserUsecase.new);
 
 class UserUsecase {
   const UserUsecase(this._ref);
