@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final signinPasswordControllerProvider = StateProvider.autoDispose<TextEditingController>(
+  (ref) => TextEditingController(),
+);
+
+final signupPasswordControllerProvider = StateProvider.autoDispose<TextEditingController>(
+  (ref) => TextEditingController(),
+);
 
 /// Password 入力用テキストフィールド
 class PasswordTextField extends StatelessWidget {
