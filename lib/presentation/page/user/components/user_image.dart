@@ -7,10 +7,10 @@ class UserImage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(userProvider);
+    final userImageUrl = ref.watch(userProvider.select((value) => value?.imageUrl));
     return CircleAvatar(
       radius: 50,
-      backgroundImage: user == null ? null : NetworkImage(user.imageUrl),
+      backgroundImage: userImageUrl != null ? NetworkImage(userImageUrl) : null,
     );
   }
 }
