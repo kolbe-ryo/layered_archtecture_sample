@@ -3,18 +3,28 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
 
-// TODO: userImageを取得した方が良くない？
-final selectedImageProvider = StateProvider.autoDispose<File?>((_) => null);
+final selectedImageProvider = StateProvider.autoDispose<ImageProvider<Object>?>((ref) {
+  if (ref.controller.state != null) {
+    return ref.controller.state;
+  }
+  final remoteUrl = ref.watch(userProvider.select((value) => value?.imageUrl));
+  if (remoteUrl != null) {
+    return NetworkImage(remoteUrl);
+  }
+  return null;
+});
 
 class UserImageEdit extends ConsumerWidget {
   const UserImageEdit({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedImage = ref.watch(selectedImageProvider);
     return CircleAvatar(
       radius: 50,
-      backgroundImage: null,
+      backgroundImage: selectedImage,
       child: Padding(
         padding: const EdgeInsets.only(top: 65.0, left: 67.5),
         child: IconButton(
@@ -25,7 +35,8 @@ class UserImageEdit extends ConsumerWidget {
             if (pickedFile == null) {
               return;
             }
-            // TODO: 画像の保存処理
+            final file = File(pickedFile.path);
+            ref.watch(selectedImageProvider.notifier).update((state) => FileImage(file));
           },
         ),
       ),
