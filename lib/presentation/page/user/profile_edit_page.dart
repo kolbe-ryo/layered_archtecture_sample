@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:layered_archtecture_sample/presentation/page/user/components/user_image_edit.dart';
+import 'package:layered_archtecture_sample/presentation/page/user/components/user_text_field.dart';
 
 class ProfileEditPage extends ConsumerWidget {
   const ProfileEditPage({super.key});
@@ -10,6 +12,22 @@ class ProfileEditPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('プロフィール更新'),
+      ),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            UserImageEdit(),
+            SizedBox(height: 16.0),
+            UserNameTextField(),
+            SizedBox(height: 16.0),
+            // RegisterButton(),
+          ],
+        ),
+      ),
+    );
   }
 }
