@@ -17,6 +17,7 @@ class UserUsecase {
     required String email,
     required String password,
   }) async {
+    // TODO: アプリケーションサービスをIF経由で呼び出すよう検討してみる（ドメイン駆動設計p149参照）
     final userId = await _ref.read(userRepositoryProvider).signUp(
           email: email,
           password: password,
