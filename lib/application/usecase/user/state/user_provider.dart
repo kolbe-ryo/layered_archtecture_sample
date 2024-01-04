@@ -1,5 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
-import 'package:riverpod/riverpod.dart';
 
 /// 認証後ユーザーの user id を保持するプロバイダー
 final uidProvider = StateProvider<String?>((_) => null);
