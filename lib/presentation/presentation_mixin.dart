@@ -3,8 +3,8 @@ import 'package:layered_archtecture_sample/domain/app_exception.dart';
 import 'package:layered_archtecture_sample/presentation/component/custom_snackbar.dart';
 
 mixin PresentationMixin {
-  Future<void> execute(
-    BuildContext context, {
+  Future<void> execute({
+    required BuildContext context,
     required Future<void> Function() action,
     required String successMessage,
   }) async {
