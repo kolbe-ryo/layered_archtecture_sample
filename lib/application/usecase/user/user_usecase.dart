@@ -6,12 +6,20 @@ import 'package:layered_archtecture_sample/domain/service/storage_service.dart';
 import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
 
+final userUsecaseInterfaceProvider = Provider<UserUsecaseInterface>((ref) => null);
+
 final userUsecaseProvider = Provider<UserUsecase>(UserUsecase.new);
+
+abstract class UserUsecaseInterface {
+  Future<void> signup();
+}
 
 class UserUsecase {
   const UserUsecase(this._ref);
 
   final Ref _ref;
+
+  final 
 
   Future<void> signUp({
     required String email,
