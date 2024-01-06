@@ -5,6 +5,7 @@ import 'package:layered_archtecture_sample/application/usecase/user/state/user_p
 import 'package:layered_archtecture_sample/domain/service/storage_service.dart';
 import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
+import 'package:layered_archtecture_sample/util/logger.dart';
 
 final userUsecaseProvider = Provider<UserUsecaseInterface>(UserUsecase.new);
 
@@ -25,6 +26,33 @@ abstract class UserUsecaseInterface {
     required String userName,
     required File? image,
   });
+}
+
+class MockUserUsecase implements UserUsecaseInterface {
+  @override
+  Future<void> register({
+    required String? uid,
+    required String userName,
+    required File? image,
+  }) async {
+    logger.i('register usecase');
+  }
+
+  @override
+  Future<void> signIn({
+    required String email,
+    required String password,
+  }) async {
+    logger.i('sign in usecase');
+  }
+
+  @override
+  Future<void> signUp({
+    required String email,
+    required String password,
+  }) async {
+    logger.i('sign up usecase');
+  }
 }
 
 class UserUsecase implements UserUsecaseInterface {
