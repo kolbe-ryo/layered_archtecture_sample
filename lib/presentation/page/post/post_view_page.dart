@@ -18,10 +18,7 @@ class PostViewPage extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => const PostPage(),
-              fullscreenDialog: true,
-            ),
+            PostPage.route(),
           );
         },
         child: const Icon(Icons.photo_camera),
