@@ -6,26 +6,37 @@ import 'package:layered_archtecture_sample/domain/service/storage_service.dart';
 import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
 
-final userUsecaseInterfaceProvider = Provider<UserUsecaseInterface>((ref) => null);
+final userUsecaseProvider = Provider<UserUsecaseInterface>(UserUsecase.new);
 
-final userUsecaseProvider = Provider<UserUsecase>(UserUsecase.new);
-
+// MockのUsecaseを差し込みたい場合、Providerの差し込み内容を変更する
 abstract class UserUsecaseInterface {
-  Future<void> signup();
+  Future<void> signUp({
+    required String email,
+    required String password,
+  });
+
+  Future<void> signIn({
+    required String email,
+    required String password,
+  });
+
+  Future<void> register({
+    required String? uid,
+    required String userName,
+    required File? image,
+  });
 }
 
-class UserUsecase {
+class UserUsecase implements UserUsecaseInterface {
   const UserUsecase(this._ref);
 
   final Ref _ref;
 
-  final 
-
+  @override
   Future<void> signUp({
     required String email,
     required String password,
   }) async {
-    // TODO: アプリケーションサービスをIF経由で呼び出すよう検討してみる（ドメイン駆動設計p149参照）
     final userId = await _ref.read(userRepositoryProvider).signUp(
           email: email,
           password: password,
@@ -33,6 +44,7 @@ class UserUsecase {
     _ref.read(uidProvider.notifier).update((_) => userId);
   }
 
+  @override
   Future<void> signIn({
     required String email,
     required String password,
@@ -45,6 +57,7 @@ class UserUsecase {
     _ref.read(userProvider.notifier).setUser = user;
   }
 
+  @override
   Future<void> register({
     required String? uid,
     required String userName,
