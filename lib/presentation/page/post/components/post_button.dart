@@ -13,7 +13,7 @@ class PostButton extends ConsumerWidget with PresentationMixin {
         execute(
           context: context,
           action: action,
-          successMessage: successMessage,
+          successMessage: 'Complete Posting!',
         );
       },
       child: const Text('Post'),
