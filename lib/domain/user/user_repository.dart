@@ -1,5 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
-import 'package:riverpod/riverpod.dart';
 
 /// ユーザーリポジトリプロバイダー
 /// アプリ起動時 or テスト時に本プロバイダーを override して使用してください
