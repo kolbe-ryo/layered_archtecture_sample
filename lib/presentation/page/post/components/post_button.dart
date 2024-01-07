@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // TODO
@@ -7,6 +7,9 @@ class PostButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container();
+    return ElevatedButton(
+      onPressed: () async {},
+      child: const Text('Post'),
+    );
   }
 }
