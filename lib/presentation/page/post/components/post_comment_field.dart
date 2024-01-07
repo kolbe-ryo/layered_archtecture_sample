@@ -1,11 +1,21 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final postCommentFieldControllerProvider =
+    StateProvider.autoDispose<TextEditingController>((ref) => TextEditingController());
 
 class PostCommentField extends ConsumerWidget {
   const PostCommentField({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container();
+    return TextField(
+      controller: ref.watch(postCommentFieldControllerProvider),
+      decoration: const InputDecoration(
+        labelText: 'コメント',
+        border: OutlineInputBorder(),
+      ),
+      maxLines: 4,
+    );
   }
 }
