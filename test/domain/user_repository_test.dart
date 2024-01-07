@@ -18,7 +18,7 @@ void main() {
   const correctPassword = 'test';
   const incorrectPassword = 'incorrect_test';
 
-  group('サインアップに関するテスト', () {
+  group('サインインに関するテスト', () {
     test('email/passwordをtest@example.com/testに設定するとMockで設定したユーザー情報が返却される', () async {
       final user = await container.read(userRepositoryProvider).signIn(
             email: correctEmail,
@@ -39,5 +39,12 @@ void main() {
         expect(e.message, 'メールアドレス または パスワードが異なります');
       }
     });
+
+    // TODO 誤passwordによるエラー
+    // TODO 誤email/誤passwordによるエラー
   });
+  // TODO サインアップのテスト
+  // TODO 登録に関するテスト
+  // TODO 削除に関するテスト
+  // TODO 取得に関するテスト
 }
