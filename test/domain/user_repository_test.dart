@@ -14,7 +14,7 @@ void main() {
     ],
   );
   const correctEmail = 'test@example.com';
-  const incorrectEmail = 'incorrect_test@example.com';
+  const incorrectEmail = 'incorrect_testexample.com';
   const correctPassword = 'test';
   const incorrectPassword = 'incorrect_test';
 
@@ -64,7 +64,7 @@ void main() {
   });
   // TODO サインアップのテスト
   group('サインアップに関するテスト', () {
-    test('両方正しいデータに設定するとMockで設定したユーザーIDが返却される', () async {
+    test('正しいemailと任意のpasswordデータに設定するとMockで設定したユーザーIDが返却される', () async {
       final userId = await container.read(userRepositoryProvider).signUp(
             email: correctEmail,
             password: correctPassword,
@@ -72,9 +72,20 @@ void main() {
       expect(userId, mock.mockUserId);
     });
 
-    // TODO: exception test
+    test('不正なemail形式と任意のpasswordを設定するとExceptionがthrowされる', () async {
+      try {
+        await container.read(userRepositoryProvider).signUp(
+              email: incorrectEmail,
+              password: incorrectPassword,
+            );
+      } on AppException catch (e) {
+        expect(e.message, 'メールアドレスの形式が不正です');
+      }
+    });
   });
   // TODO 登録に関するテスト
+
   // TODO 削除に関するテスト
+
   // TODO 取得に関するテスト
 }
