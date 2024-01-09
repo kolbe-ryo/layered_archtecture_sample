@@ -30,36 +30,30 @@ void main() {
     });
 
     test('emailのみ正しいデータを設定するとExceptionがthrowされる', () async {
-      try {
+      expect(() async {
         await container.read(userRepositoryProvider).signIn(
               email: correctEmail,
               password: incorrectPassword,
             );
-      } on AppException catch (e) {
-        expect(e.message, 'メールアドレス または パスワードが異なります');
-      }
+      }, throwsA(isA<AppException>()));
     });
 
     test('passwordのみ正しいデータを設定するとExceptionがthrowされる', () async {
-      try {
+      expect(() async {
         await container.read(userRepositoryProvider).signIn(
               email: incorrectEmail,
               password: correctPassword,
             );
-      } on AppException catch (e) {
-        expect(e.message, 'メールアドレス または パスワードが異なります');
-      }
+      }, throwsA(isA<AppException>()));
     });
 
     test('両方とも誤ったデータを設定するとExceptionがthrowされる', () async {
-      try {
+      expect(() async {
         await container.read(userRepositoryProvider).signIn(
               email: incorrectEmail,
               password: incorrectPassword,
             );
-      } on AppException catch (e) {
-        expect(e.message, 'メールアドレス または パスワードが異なります');
-      }
+      }, throwsA(isA<AppException>()));
     });
   });
   // TODO サインアップのテスト
@@ -73,14 +67,12 @@ void main() {
     });
 
     test('不正なemail形式と任意のpasswordを設定するとExceptionがthrowされる', () async {
-      try {
+      expect(() async {
         await container.read(userRepositoryProvider).signUp(
               email: incorrectEmail,
               password: incorrectPassword,
             );
-      } on AppException catch (e) {
-        expect(e.message, 'メールアドレスの形式が不正です');
-      }
+      }, throwsA(isA<AppException>()));
     });
   });
   // TODO 登録に関するテスト
