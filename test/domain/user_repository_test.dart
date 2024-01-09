@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:layered_archtecture_sample/domain/app_exception.dart';
+import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_user_repository.dart';
 
@@ -76,9 +77,22 @@ void main() {
     });
   });
   // TODO 登録に関するテスト
-  group('プロフィール登録（更新）に関するテスト', () {});
+  group('プロフィール登録（更新）に関するテスト', () {
+    test('Userクラスを渡すとUserクラスが返却される', () async {
+      const localUser = User(
+        id: 'userId',
+        userName: 'userName',
+        imageUrl: 'userUrl',
+      );
+      final registerUser = await container.read(userRepositoryProvider).register(user: localUser);
+      expect(registerUser.id, localUser.id);
+      expect(registerUser.userName, localUser.userName);
+      expect(registerUser.imageUrl, mock.mockUserImageUrl);
+    });
+  });
 
   // TODO 削除に関するテスト
+  group('ユーザーIDを渡すと', () {});
 
   // TODO 取得に関するテスト
 }
