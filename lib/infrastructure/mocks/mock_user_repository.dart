@@ -47,11 +47,17 @@ class MockUserRepository implements UserRepository {
   @override
   Future<void> delete({required String uid}) async {
     await Future.delayed(const Duration(seconds: 2));
+    if (uid == 'none') {
+      throw const AppException('存在しないユーザーです');
+    }
   }
 
   @override
   Future<User> fetch({required String uid}) async {
     await Future.delayed(const Duration(seconds: 2));
+    if (uid == 'none') {
+      throw const AppException('存在しないユーザーです');
+    }
     return User(
       id: uid,
       userName: '${mockUserName}2',
