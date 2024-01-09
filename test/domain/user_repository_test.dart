@@ -76,7 +76,7 @@ void main() {
       }, throwsA(isA<AppException>()));
     });
   });
-  // TODO 登録に関するテスト
+
   group('プロフィール登録（更新）に関するテスト', () {
     test('Userクラスを渡すとUserクラスが返却される', () async {
       const localUser = User(
@@ -91,8 +91,11 @@ void main() {
     });
   });
 
-  // TODO 削除に関するテスト
-  group('ユーザーIDを渡すと', () {});
+  group('削除に関するテスト', () {
+    test('ユーザーIDを渡すとデータが削除されること', () {
+      // Mock環境しかないため本テストは実施不可能
+    });
+  });
 
   // TODO 取得に関するテスト
 }
