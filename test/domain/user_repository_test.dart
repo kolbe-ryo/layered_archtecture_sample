@@ -57,7 +57,7 @@ void main() {
       }, throwsA(isA<AppException>()));
     });
   });
-  // TODO サインアップのテスト
+
   group('サインアップに関するテスト', () {
     test('正しいemailと任意のpasswordデータに設定するとMockで設定したユーザーIDが返却される', () async {
       final userId = await container.read(userRepositoryProvider).signUp(
@@ -95,7 +95,28 @@ void main() {
     test('ユーザーIDを渡すとデータが削除されること', () {
       // Mock環境しかないため本テストは実施不可能
     });
+
+    test('存在しないユーザーIDを渡すとExceptionがthrowされる', () async {
+      expect(() async {
+        await container.read(userRepositoryProvider).fetch(uid: 'none');
+      }, throwsA(isA<AppException>()));
+    });
   });
 
-  // TODO 取得に関するテスト
+  group('取得に関するテスト', () {
+    test('任意のユーザーIDを渡すとUserクラスが返却される', () async {
+      const passedUid = 'userId';
+      final localUser = await container.read(userRepositoryProvider).fetch(uid: passedUid);
+      expect(localUser.id, passedUid);
+      expect(localUser.userName, '${mock.mockUserName}2');
+      expect(localUser.imageUrl,
+          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png');
+    });
+
+    test('存在しないユーザーIDを渡すとExceptionがthrowされる', () async {
+      expect(() async {
+        await container.read(userRepositoryProvider).fetch(uid: 'none');
+      }, throwsA(isA<AppException>()));
+    });
+  });
 }
