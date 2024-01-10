@@ -1,5 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:layered_archtecture_sample/domain/post/entity/post.dart';
-import 'package:riverpod/riverpod.dart';
 
 /// 投稿リポジトリプロバイダー
 /// アプリ起動時 or テスト時に本プロバイダーを override して使用してください
@@ -22,7 +22,7 @@ abstract class PostRepository {
   Future<void> delete({required String postId});
 
   /// 投稿情報取得
-  Future<Post> fetch({required String postId});
+  Future<Post?> fetch({required String postId});
 
   /// 全投稿情報取得
   Future<List<Post>> fetchAll();
