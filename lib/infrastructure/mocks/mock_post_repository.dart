@@ -1,5 +1,6 @@
 import 'package:layered_archtecture_sample/domain/post/entity/post.dart';
 import 'package:layered_archtecture_sample/domain/post/post_repository.dart';
+import 'package:collection/collection.dart';
 
 import '../../domain/user/entity/user.dart';
 
@@ -124,9 +125,9 @@ class MockPostRepository implements PostRepository {
   }
 
   @override
-  Future<Post> fetch({required String postId}) async {
+  Future<Post?> fetch({required String postId}) async {
     await Future.delayed(const Duration(seconds: 2));
-    return mockPosts.where((post) => post.id == postId).first;
+    return mockPosts.firstWhereOrNull((post) => post.id == postId);
   }
 
   @override
