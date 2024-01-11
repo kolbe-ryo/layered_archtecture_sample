@@ -9,7 +9,6 @@ void main() {
   final mock = MockPostRepository();
   final container = ProviderContainer(
     overrides: [
-      // Mockのリポジトリ結果を返却するように設定
       postRepositoryProvider.overrideWithValue(mock),
     ],
   );
