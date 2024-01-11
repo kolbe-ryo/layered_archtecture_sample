@@ -13,6 +13,7 @@ class App extends ConsumerWidget {
       title: 'SNS',
       debugShowCheckedModeBanner: false,
       theme: ref.watch(themeProvider),
+      // TODO: サインアップページにも行けるようにする
       home: const SignInPage(),
       // builderを使用するとNavigatorの上に、Widgetを配置することができる
       // 従って、今回だとisLoading（OverlayLoadingの内部実装）がtrueの時には、ローディング画面がどこの画面にいても
