@@ -19,26 +19,27 @@ void main() {
     });
     test('存在しないIDを渡すとnullが返却される', () async {
       final post = await container.read(postRepositoryProvider).fetch(postId: '009');
+      // ignore: prefer_void_to_null
       expect(post, isA<Null>());
     });
   });
 
   group('投稿全件取得に関するテスト', () {
-    test('投稿', () async {
-      final post = await container.read(postRepositoryProvider).fetch(postId: '009');
-      expect(post, isA<Null>());
+    test('投稿全件が返却される', () async {
+      final post = await container.read(postRepositoryProvider).fetchAll();
+      expect(post.length, 8);
     });
   });
 
   group('投稿追加に関するテスト', () {
-    test('', () => null);
+    test('', () async {});
   });
 
   group('投稿削除に関するテスト', () {
-    test('', () => null);
+    test('', () async {});
   });
 
   group('投稿更新に関するテスト', () {
-    test('', () => null);
+    test('', () async {});
   });
 }
