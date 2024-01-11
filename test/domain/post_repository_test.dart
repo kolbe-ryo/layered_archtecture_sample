@@ -60,6 +60,21 @@ void main() {
   });
 
   group('投稿更新に関するテスト', () {
-    test('', () async {});
+    test('存在する投稿を渡すと内容が更新される', () async {
+      final post = Post(
+        id: '008',
+        user: const User(
+          id: '',
+          userName: '',
+          imageUrl: '',
+        ),
+        imageUrl: '',
+        comment: 'test',
+        createdAt: DateTime.now(),
+      );
+      await container.read(postRepositoryProvider).update(post: post);
+      final updatedPost = await container.read(postRepositoryProvider).fetch(postId: '008');
+      expect(updatedPost!.comment, 'test');
+    });
   });
 }
