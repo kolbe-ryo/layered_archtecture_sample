@@ -19,8 +19,8 @@ class SignUpButton extends ConsumerWidget with PresentationMixin {
           action: () async {
             final navigator = Navigator.of(context);
             await ref.read(userUsecaseProvider).signUp(
-                  email: ref.read(signupEmailControllerProvider).text,
-                  password: ref.read(signupPasswordControllerProvider).text,
+                  email: ref.read(signinEmailControllerProvider).text,
+                  password: ref.read(signinPasswordControllerProvider).text,
                 );
 
             navigator.pushAndRemoveUntil(HomePage.route(), (route) => false);
