@@ -6,10 +6,9 @@ import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_post_repository.dart';
 
 void main() {
-  final mock = MockPostRepository();
-  final container = ProviderContainer(
+  var container = ProviderContainer(
     overrides: [
-      postRepositoryProvider.overrideWithValue(mock),
+      postRepositoryProvider.overrideWithValue(MockPostRepository()),
     ],
   );
   group('投稿取得に関するテスト', () {
@@ -47,6 +46,9 @@ void main() {
       await container.read(postRepositoryProvider).add(post: post);
       final posts = await container.read(postRepositoryProvider).fetchAll();
       expect(posts.length, 9);
+
+      // 追加したpostを削除する
+      await container.read(postRepositoryProvider).delete(postId: '010');
     });
   });
 
