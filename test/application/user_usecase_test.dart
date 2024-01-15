@@ -4,7 +4,6 @@ import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_user_repository.dart';
 
 void main() {
-  // TODO
   /// Arrangement
   final mockUserRepo = MockUserRepository();
   final provideContainer = ProviderContainer(
@@ -14,7 +13,10 @@ void main() {
   );
 
   group('SignUpに関するテスト', () {
-    test('正しいemail/passwordを渡すと対応するUIDがstateに保持される', () async {});
+    test('正しいemail/passwordを渡すと対応するUIDがstateに保持される', () async {
+      //TODO something
+      provideContainer.read(userRepositoryProvider).toString();
+    });
     test('誤ったemail/passwordを渡すと初期値のUIDがstateに保持される', () async {});
   });
   group('SignInに関するテスト', () {
