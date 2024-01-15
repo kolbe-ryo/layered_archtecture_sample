@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// ストレージサービスプロバイダー
 /// アプリ起動時 or テスト時に本プロバイダーを override して使用してください
