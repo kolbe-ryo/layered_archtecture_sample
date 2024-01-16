@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
+import 'package:layered_archtecture_sample/application/usecase/user/user_usecase.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_user_repository.dart';
 
@@ -12,10 +14,17 @@ void main() {
     ],
   );
 
+  const email = 'test@example.com';
+  const password = 'test';
+
   group('SignUpに関するテスト', () {
     test('正しいemail/passwordを渡すと対応するUIDがstateに保持される', () async {
-      //TODO something
-      provideContainer.read(userRepositoryProvider).toString();
+      await provideContainer.read(userUsecaseProvider).signUp(
+            email: email,
+            password: password,
+          );
+      final uid = provideContainer.read(uidProvider);
+      expect(uid, mockUserRepo.mockUserId);
     });
     test('誤ったemail/passwordを渡すと初期値のUIDがstateに保持される', () async {});
   });
