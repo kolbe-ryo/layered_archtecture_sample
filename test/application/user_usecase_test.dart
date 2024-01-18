@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
 import 'package:layered_archtecture_sample/application/usecase/user/user_usecase.dart';
-import 'package:layered_archtecture_sample/domain/app_exception.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_user_repository.dart';
 
