@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:layered_archtecture_sample/presentation/component/overlay_loading.dart';
+import 'package:layered_archtecture_sample/presentation/components/overlay_loading.dart';
 import 'package:layered_archtecture_sample/presentation/page/theme.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/signin_page.dart';
 
