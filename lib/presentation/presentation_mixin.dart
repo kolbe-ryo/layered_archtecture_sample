@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:layered_archtecture_sample/domain/app_exception.dart';
-import 'package:layered_archtecture_sample/presentation/component/custom_snackbar.dart';
+import 'package:layered_archtecture_sample/presentation/components/custom_snackbar.dart';
 
 mixin PresentationMixin {
   Future<void> execute({
