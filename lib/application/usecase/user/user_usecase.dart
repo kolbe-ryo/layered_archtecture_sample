@@ -91,7 +91,9 @@ class UserUsecase implements UserUsecaseInterface {
     required String userName,
     required File? image,
   }) async {
-    if (uid == null) return;
+    if (uid == null) {
+      return;
+    }
 
     final imageUrl = await _ref.read(storageServiceProvider).uploadImage(image: image);
     final user = User(

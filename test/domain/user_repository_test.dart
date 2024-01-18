@@ -31,30 +31,39 @@ void main() {
     });
 
     test('emailのみ正しいデータを設定するとExceptionがthrowされる', () async {
-      expect(() async {
-        await container.read(userRepositoryProvider).signIn(
-              email: correctEmail,
-              password: incorrectPassword,
-            );
-      }, throwsA(isA<AppException>()));
+      expect(
+        () async {
+          await container.read(userRepositoryProvider).signIn(
+                email: correctEmail,
+                password: incorrectPassword,
+              );
+        },
+        throwsA(isA<AppException>()),
+      );
     });
 
     test('passwordのみ正しいデータを設定するとExceptionがthrowされる', () async {
-      expect(() async {
-        await container.read(userRepositoryProvider).signIn(
-              email: incorrectEmail,
-              password: correctPassword,
-            );
-      }, throwsA(isA<AppException>()));
+      expect(
+        () async {
+          await container.read(userRepositoryProvider).signIn(
+                email: incorrectEmail,
+                password: correctPassword,
+              );
+        },
+        throwsA(isA<AppException>()),
+      );
     });
 
     test('両方とも誤ったデータを設定するとExceptionがthrowされる', () async {
-      expect(() async {
-        await container.read(userRepositoryProvider).signIn(
-              email: incorrectEmail,
-              password: incorrectPassword,
-            );
-      }, throwsA(isA<AppException>()));
+      expect(
+        () async {
+          await container.read(userRepositoryProvider).signIn(
+                email: incorrectEmail,
+                password: incorrectPassword,
+              );
+        },
+        throwsA(isA<AppException>()),
+      );
     });
   });
 

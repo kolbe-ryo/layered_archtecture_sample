@@ -1,113 +1,113 @@
+import 'package:collection/collection.dart';
 import 'package:layered_archtecture_sample/domain/post/entity/post.dart';
 import 'package:layered_archtecture_sample/domain/post/post_repository.dart';
-import 'package:collection/collection.dart';
 
 import '../../domain/user/entity/user.dart';
 
 class MockPostRepository implements PostRepository {
   final mockPosts = <Post>[
     Post(
-      id: "001",
+      id: '001',
       user: const User(
-        id: "001",
-        userName: "hoge",
+        id: '001',
+        userName: 'hoge',
         imageUrl:
             'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
       ),
       imageUrl:
-          "https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png",
-      comment: "This is post 1",
+          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
+      comment: 'This is post 1',
       createdAt: DateTime.now().subtract(const Duration(days: 20)),
     ),
     Post(
-      id: "002",
+      id: '002',
       user: const User(
-        id: "001",
-        userName: "hoge",
+        id: '001',
+        userName: 'hoge',
         imageUrl:
             'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
       ),
       imageUrl:
-          "https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png",
-      comment: "This is post 2",
+          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
+      comment: 'This is post 2',
       createdAt: DateTime.now().subtract(const Duration(days: 19)),
     ),
     Post(
-      id: "003",
+      id: '003',
       user: const User(
-        id: "001",
-        userName: "hoge",
+        id: '001',
+        userName: 'hoge',
         imageUrl:
             'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
       ),
       imageUrl:
-          "https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png",
-      comment: "This is post 3",
+          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
+      comment: 'This is post 3',
       createdAt: DateTime.now().subtract(const Duration(days: 18)),
     ),
     Post(
-      id: "004",
+      id: '004',
       user: const User(
-        id: "001",
-        userName: "hoge",
+        id: '001',
+        userName: 'hoge',
         imageUrl:
             'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
       ),
       imageUrl:
-          "https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png",
-      comment: "This is post 4",
+          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
+      comment: 'This is post 4',
       createdAt: DateTime.now().subtract(const Duration(days: 17)),
     ),
     Post(
-      id: "005",
+      id: '005',
       user: const User(
-        id: "001",
-        userName: "hoge",
+        id: '001',
+        userName: 'hoge',
         imageUrl:
             'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
       ),
       imageUrl:
-          "https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png",
-      comment: "This is post 5",
+          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
+      comment: 'This is post 5',
       createdAt: DateTime.now().subtract(const Duration(days: 16)),
     ),
     Post(
-      id: "006",
+      id: '006',
       user: const User(
-        id: "001",
-        userName: "hoge",
+        id: '001',
+        userName: 'hoge',
         imageUrl:
             'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
       ),
       imageUrl:
-          "https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png",
-      comment: "This is post 6",
+          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
+      comment: 'This is post 6',
       createdAt: DateTime.now().subtract(const Duration(days: 15)),
     ),
     Post(
-      id: "007",
+      id: '007',
       user: const User(
-        id: "001",
-        userName: "hoge",
+        id: '001',
+        userName: 'hoge',
         imageUrl:
             'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
       ),
       imageUrl:
-          "https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png",
-      comment: "This is post 7",
+          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
+      comment: 'This is post 7',
       createdAt: DateTime.now().subtract(const Duration(days: 14)),
     ),
     Post(
-      id: "008",
+      id: '008',
       user: const User(
-        id: "001",
-        userName: "hoge",
+        id: '001',
+        userName: 'hoge',
         imageUrl:
             'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
       ),
       imageUrl:
-          "https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png",
-      comment: "This is post 8",
+          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
+      comment: 'This is post 8',
       createdAt: DateTime.now().subtract(const Duration(days: 13)),
     ),
   ];
