@@ -77,12 +77,15 @@ void main() {
     });
 
     test('不正なemail形式と任意のpasswordを設定するとExceptionがthrowされる', () async {
-      expect(() async {
-        await container.read(userRepositoryProvider).signUp(
-              email: incorrectEmail,
-              password: incorrectPassword,
-            );
-      }, throwsA(isA<AppException>()));
+      expect(
+        () async {
+          await container.read(userRepositoryProvider).signUp(
+                email: incorrectEmail,
+                password: incorrectPassword,
+              );
+        },
+        throwsA(isA<AppException>()),
+      );
     });
   });
 
@@ -106,9 +109,12 @@ void main() {
     });
 
     test('存在しないユーザーIDを渡すとExceptionがthrowされる', () async {
-      expect(() async {
-        await container.read(userRepositoryProvider).fetch(uid: 'none');
-      }, throwsA(isA<AppException>()));
+      expect(
+        () async {
+          await container.read(userRepositoryProvider).fetch(uid: 'none');
+        },
+        throwsA(isA<AppException>()),
+      );
     });
   });
 
@@ -123,9 +129,12 @@ void main() {
     });
 
     test('存在しないユーザーIDを渡すとExceptionがthrowされる', () async {
-      expect(() async {
-        await container.read(userRepositoryProvider).fetch(uid: 'none');
-      }, throwsA(isA<AppException>()));
+      expect(
+        () async {
+          await container.read(userRepositoryProvider).fetch(uid: 'none');
+        },
+        throwsA(isA<AppException>()),
+      );
     });
   });
 }

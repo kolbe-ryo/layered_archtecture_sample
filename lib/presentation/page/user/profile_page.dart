@@ -16,7 +16,7 @@ class ProfilePage extends ConsumerWidget {
         automaticallyImplyLeading: false,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 8.0),
+            padding: const EdgeInsets.only(right: 8),
             child: IconButton(
               icon: const Icon(Icons.settings),
               onPressed: () {
@@ -30,12 +30,12 @@ class ProfilePage extends ConsumerWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Center(
           child: Column(
             children: [
               const UserImage(),
-              const SizedBox(height: 16.0),
+              const SizedBox(height: 16),
               Text(
                 username,
                 style: const TextStyle(

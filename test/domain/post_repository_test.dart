@@ -6,7 +6,7 @@ import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_post_repository.dart';
 
 void main() {
-  var container = ProviderContainer(
+  final container = ProviderContainer(
     overrides: [
       postRepositoryProvider.overrideWithValue(MockPostRepository()),
     ],

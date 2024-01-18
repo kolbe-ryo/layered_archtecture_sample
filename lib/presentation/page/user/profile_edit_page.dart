@@ -18,13 +18,13 @@ class ProfileEditPage extends ConsumerWidget {
         title: const Text('プロフィール更新'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: const [
             UserImageEdit(),
-            SizedBox(height: 16.0),
+            SizedBox(height: 16),
             UserNameTextField(),
-            SizedBox(height: 16.0),
+            SizedBox(height: 16),
             RegisterButton(),
           ],
         ),

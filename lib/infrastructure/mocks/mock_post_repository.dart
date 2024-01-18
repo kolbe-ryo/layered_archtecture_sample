@@ -114,31 +114,31 @@ class MockPostRepository implements PostRepository {
 
   @override
   Future<void> add({required Post post}) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     mockPosts.add(post);
   }
 
   @override
   Future<void> delete({required String postId}) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     mockPosts.removeWhere((post) => post.id == postId);
   }
 
   @override
   Future<Post?> fetch({required String postId}) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     return mockPosts.firstWhereOrNull((post) => post.id == postId);
   }
 
   @override
   Future<List<Post>> fetchAll() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     return mockPosts;
   }
 
   @override
   Future<void> update({required Post post}) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     post = post.copyWith(
       imageUrl:
           'https://1.bp.blogspot.com/-rb5mSYSN8pA/X6tmegQM2ZI/AAAAAAABcLw/_-n5UvfxhJItVJnKRrycKPShVDsxStrjACNcBGAsYHQ/s400/fruit_apple_yellow.png',

@@ -15,20 +15,20 @@ class SignInPage extends ConsumerWidget {
         title: const Text('サインイン'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             EmailTextField(
               controller: ref.watch(signinEmailControllerProvider),
             ),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 16),
             PasswordTextField(
               controller: ref.watch(signinPasswordControllerProvider),
             ),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 16),
             const SignInButton(),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 16),
             const SignUpButton(),
           ],
         ),
