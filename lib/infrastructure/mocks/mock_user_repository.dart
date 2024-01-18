@@ -14,7 +14,7 @@ class MockUserRepository implements UserRepository {
 
   @override
   Future<User> signIn({required String email, required String password}) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     if (email != 'test@example.com' || password != 'test') {
       throw const AppException('メールアドレス または パスワードが異なります');
     }
@@ -27,7 +27,7 @@ class MockUserRepository implements UserRepository {
 
   @override
   Future<String> signUp({required String email, required String password}) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     if (!email.contains('@')) {
       throw const AppException('メールアドレスの形式が不正です');
     }
@@ -36,7 +36,7 @@ class MockUserRepository implements UserRepository {
 
   @override
   Future<User> register({required User user}) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     return User(
       id: user.id,
       userName: user.userName,
@@ -46,7 +46,7 @@ class MockUserRepository implements UserRepository {
 
   @override
   Future<void> delete({required String uid}) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     if (uid == 'none') {
       throw const AppException('存在しないユーザーです');
     }
@@ -54,7 +54,7 @@ class MockUserRepository implements UserRepository {
 
   @override
   Future<User> fetch({required String uid}) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     if (uid == 'none') {
       throw const AppException('存在しないユーザーです');
     }
