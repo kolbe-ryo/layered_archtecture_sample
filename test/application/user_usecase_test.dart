@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
 import 'package:layered_archtecture_sample/application/usecase/user/user_usecase.dart';
-import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
+import 'package:layered_archtecture_sample/domain/service/storage_service.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
+import 'package:layered_archtecture_sample/infrastructure/mocks/mock_storage_service.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_user_repository.dart';
 import 'package:layered_archtecture_sample/util/logger.dart';
 
@@ -13,9 +16,11 @@ void main() {
 
   /// Arrangement
   final mockUserRepo = MockUserRepository();
+  final mockStorageService = MockStorageService();
   final provideContainer = ProviderContainer(
     overrides: [
       userRepositoryProvider.overrideWithValue(mockUserRepo),
+      storageServiceProvider.overrideWithValue(mockStorageService),
     ],
   );
   group('SignUpに関するテスト', () {
@@ -65,10 +70,28 @@ void main() {
           );
       final user = provideContainer.read(userProvider);
       expect(user?.id, mockUserRepo.mockUserId);
+
+      provideContainer.read(userProvider.notifier).setUser = null;
     });
   });
   group('更新に関するテスト', () {
-    test('UIDがnullの場合初期値のUserがstateに保持される', () async {});
-    test('任意のUID・ユーザー名・任意の画像パスを渡すと、設定値を持つUserクラスがstateに保持される', () async {});
+    test('UIDがnullの場合初期値のUserがstateに保持される', () async {
+      await provideContainer.read(userUsecaseProvider).register(
+            uid: null,
+            userName: 'userName',
+            image: File('path'),
+          );
+      final user = provideContainer.read(userProvider);
+      expect(user, null);
+    });
+    test('任意のUID・ユーザー名・任意の画像パスを渡すと、設定値を持つUserクラスがstateに保持される', () async {
+      await provideContainer.read(userUsecaseProvider).register(
+            uid: 'uid',
+            userName: 'userName',
+            image: File('path'),
+          );
+      final user = provideContainer.read(userProvider);
+      expect(user?.id, 'uid');
+    });
   });
 }
