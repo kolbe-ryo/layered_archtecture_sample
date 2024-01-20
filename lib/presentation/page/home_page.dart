@@ -12,14 +12,15 @@ import 'package:layered_archtecture_sample/presentation/page/user/profile_page.d
 final currentIndexProvider = StateProvider<int>((ref) => IndexMode.list.index);
 
 class HomePage extends ConsumerWidget {
-  HomePage({super.key})
-      : _children = [
-          const PostViewPage(),
-          const ProfilePage(),
+  const HomePage({super.key})
+      // ignore: avoid_field_initializers_in_const_classes
+      : _children = const [
+          PostViewPage(),
+          ProfilePage(),
         ];
 
   static Route<void> route() {
-    return MaterialPageRoute(builder: (_) => HomePage());
+    return MaterialPageRoute(builder: (_) => const HomePage());
   }
 
   final List<Widget> _children;

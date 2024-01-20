@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
+import 'package:layered_archtecture_sample/enum/index_mode.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/user_image.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/profile_edit_page.dart';
 
@@ -17,7 +18,7 @@ class ProfilePage extends ConsumerWidget {
     final username = ref.watch(userProvider.select((value) => value?.userName ?? ''));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('プロフィール'),
+        title: Text(IndexMode.profile.label),
         automaticallyImplyLeading: false,
         actions: [
           Padding(
