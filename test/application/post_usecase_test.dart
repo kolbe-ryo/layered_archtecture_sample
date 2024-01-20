@@ -57,6 +57,15 @@ void main() {
         throwsA(isA<AppException>()),
       );
     });
-    test('任意の画像・ユーザー・コメントが渡された場合、前の内容の投稿が1件追加される', () async {});
+    test('任意の画像・ユーザー・コメントが渡された場合、前の内容の投稿が1件追加される', () async {
+      await providerContainer.read(postUsecaseProvider).addPost(
+            image: File('path'),
+            comment: 'comment',
+            user: mockUser,
+          );
+      // 追加されたテストはMockUsecaseの固定ユーザーであること
+      final posts = await providerContainer.read(postUsecaseProvider).fetchAll();
+      expect(posts.first.id, '009');
+    });
   });
 }
