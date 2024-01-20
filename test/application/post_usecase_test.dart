@@ -1,4 +1,5 @@
 // TODO:
+import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:layered_archtecture_sample/application/usecase/post/post_usecase.dart';
@@ -21,6 +22,9 @@ void main() {
   group('投稿全件取得に関するテスト', () {
     test('投稿一覧が昇順のリストとして返却される', () async {
       final posts = await providerContainer.read(postUsecaseProvider).fetchAll();
+      final sortedList = mockPostRepository.mockPosts.sorted((a, b) => b.createdAt!.compareTo(a.createdAt!));
+      final match = const DeepCollectionEquality().equals(posts, sortedList);
+      expect(true, match);
     });
   });
   group('投稿に関するテスト', () {
