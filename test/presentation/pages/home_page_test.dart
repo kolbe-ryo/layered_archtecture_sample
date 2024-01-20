@@ -24,10 +24,28 @@ void main() {
         ),
       );
 
-      expect(find.widgetWithText(AppBar, IndexMode.list.label), findsNWidgets(1));
+      expect(find.widgetWithText(AppBar, IndexMode.list.label), findsOneWidget);
       expect(find.widgetWithText(AppBar, IndexMode.profile.label), findsNothing);
     });
-    testWidgets('プロフィールのBNBをタップするとプロフィールページが表示される', (widgetTester) async {});
+    testWidgets('プロフィールのBNBをタップするとプロフィールページが表示される', (widgetTester) async {
+      await widgetTester.pumpWidget(
+        const ProviderScope(
+          child: _HomePageTest(),
+        ),
+      );
+
+      // デフォルト表示のチェック
+      expect(find.widgetWithText(AppBar, IndexMode.list.label), findsOneWidget);
+      expect(find.widgetWithText(AppBar, IndexMode.profile.label), findsNothing);
+
+      // BNBのプロフィールをタップする
+      await widgetTester.tap(find.byIcon(Icons.account_circle));
+      await widgetTester.pump();
+
+      // タップ後のWidgetチェック
+      expect(find.widgetWithText(AppBar, IndexMode.list.label), findsNothing);
+      expect(find.widgetWithText(AppBar, IndexMode.profile.label), findsOneWidget);
+    });
   });
 }
 
