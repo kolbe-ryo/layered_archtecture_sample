@@ -1,1 +1,3 @@
-// TODO(kolbe): write test 
+// TODO(kolbe): write test
+
+void main() {}
