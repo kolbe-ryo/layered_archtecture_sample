@@ -31,7 +31,7 @@ class PostUsecase {
     final imageUrl = await _ref.read(storageServiceProvider).uploadImage(image: image);
     await _ref.read(postRepositoryProvider).add(
           post: Post(
-            id: null,
+            id: '009',
             user: user,
             imageUrl: imageUrl,
             comment: comment,
