@@ -4,4 +4,3 @@ linter:
   rules:
     lines_longer_than_80_chars: false
     one_member_abstracts: false
-    flutter_style_todos: false
