@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:layered_archtecture_sample/presentation/page/user/components/register_button.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/user_image_edit.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/user_text_field.dart';

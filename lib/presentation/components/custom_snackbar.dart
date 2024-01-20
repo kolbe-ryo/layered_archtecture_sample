@@ -1,15 +1,15 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class CustomSnackBar extends SnackBar {
   CustomSnackBar._({
     required String message,
-    Color? backgroundColor,
+    super.backgroundColor,
   }) : super(
           content: Text(message),
-          backgroundColor: backgroundColor,
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(8),
           ),
         );
 

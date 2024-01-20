@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:layered_archtecture_sample/presentation/page/post/components/post_button.dart';
 import 'package:layered_archtecture_sample/presentation/page/post/components/post_comment_field.dart';
 import 'package:layered_archtecture_sample/presentation/page/post/components/post_image.dart';
@@ -21,7 +26,7 @@ class PostPage extends ConsumerWidget {
         title: const Text('New Post'),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: const [
             PostImage(),

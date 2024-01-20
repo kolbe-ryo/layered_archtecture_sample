@@ -1,6 +1,10 @@
+// Dart imports:
 import 'dart:io';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -27,7 +31,9 @@ class PostImage extends ConsumerWidget {
       onTap: () async {
         final picker = ImagePicker();
         final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-        if (pickedFile == null) return;
+        if (pickedFile == null) {
+          return;
+        }
         ref.watch(selectedImageProvider.notifier).state = File(pickedFile.path);
       },
       child: Container(

@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:layered_archtecture_sample/presentation/page/user/components/email_text_field.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/password_text_field.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/signup_button.dart';
@@ -14,7 +19,7 @@ class SignUpPage extends ConsumerWidget {
         title: const Text('サインアップ'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             EmailTextField(

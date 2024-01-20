@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final themeProvider = Provider((ref) {
@@ -16,9 +19,10 @@ final themeProvider = Provider((ref) {
       behavior: SnackBarBehavior.floating,
     ),
     textTheme: TextTheme(
-        bodyLarge: TextStyle(color: Colors.grey[700]),
-        bodyMedium: TextStyle(color: Colors.grey[700]),
-        bodySmall: TextStyle(color: Colors.grey[700])),
+      bodyLarge: TextStyle(color: Colors.grey[700]),
+      bodyMedium: TextStyle(color: Colors.grey[700]),
+      bodySmall: TextStyle(color: Colors.grey[700]),
+    ),
     appBarTheme: AppBarTheme(
       centerTitle: true,
       titleTextStyle: TextStyle(

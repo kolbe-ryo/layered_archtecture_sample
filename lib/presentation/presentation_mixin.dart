@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:layered_archtecture_sample/domain/app_exception.dart';
 import 'package:layered_archtecture_sample/presentation/components/custom_snackbar.dart';
 

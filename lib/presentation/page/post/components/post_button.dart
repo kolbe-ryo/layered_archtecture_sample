@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:layered_archtecture_sample/application/usecase/post/post_usecase.dart';
 import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
 import 'package:layered_archtecture_sample/presentation/page/post/components/post_comment_field.dart';
@@ -13,7 +18,7 @@ class PostButton extends ConsumerWidget with PresentationMixin {
   Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       onPressed: () async {
-        execute(
+        await execute(
           context: context,
           action: () async {
             final navigator = Navigator.of(context);

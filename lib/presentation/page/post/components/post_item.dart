@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:layered_archtecture_sample/domain/post/entity/post.dart';
 import 'package:layered_archtecture_sample/util/datetime_converter.dart';
 
@@ -24,7 +27,7 @@ class PostItem extends StatelessWidget {
             subtitle: Text(
               // フォーマット等の画面表示に関するものは、ドメイン層ではなくプレゼンテーション層の責務なのでここで変換
               post.createdAt!.toFormatDateString,
-              style: const TextStyle(fontSize: 12.0),
+              style: const TextStyle(fontSize: 12),
             ),
           ),
           Image.network(
@@ -32,7 +35,7 @@ class PostItem extends StatelessWidget {
             fit: BoxFit.fill,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: Text(post.comment),
           ),
         ],

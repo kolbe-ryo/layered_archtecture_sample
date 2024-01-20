@@ -1,7 +1,9 @@
+// Package imports:
 import 'package:collection/collection.dart';
+
+// Project imports:
 import 'package:layered_archtecture_sample/domain/post/entity/post.dart';
 import 'package:layered_archtecture_sample/domain/post/post_repository.dart';
-
 import '../../domain/user/entity/user.dart';
 
 class MockPostRepository implements PostRepository {
@@ -143,8 +145,10 @@ class MockPostRepository implements PostRepository {
       imageUrl:
           'https://1.bp.blogspot.com/-rb5mSYSN8pA/X6tmegQM2ZI/AAAAAAABcLw/_-n5UvfxhJItVJnKRrycKPShVDsxStrjACNcBGAsYHQ/s400/fruit_apple_yellow.png',
     );
-    var index = mockPosts.indexWhere((existingPost) => existingPost.id == post.id);
-    if (index == -1) return;
+    final index = mockPosts.indexWhere((existingPost) => existingPost.id == post.id);
+    if (index == -1) {
+      return;
+    }
     mockPosts[index] = post;
   }
 }

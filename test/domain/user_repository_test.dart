@@ -1,5 +1,8 @@
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+// Project imports:
 import 'package:layered_archtecture_sample/domain/app_exception.dart';
 import 'package:layered_archtecture_sample/domain/user/entity/user.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
@@ -124,8 +127,10 @@ void main() {
       final localUser = await container.read(userRepositoryProvider).fetch(uid: passedUid);
       expect(localUser.id, passedUid);
       expect(localUser.userName, '${mock.mockUserName}2');
-      expect(localUser.imageUrl,
-          'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png');
+      expect(
+        localUser.imageUrl,
+        'https://1.bp.blogspot.com/-Ax7y4QVbj-c/X5OcVJn04jI/AAAAAAABb8g/aWzcFaud_V42uAc_3xPTisdrKCDeg_OvQCNcBGAsYHQ/s400/food_yukkejan.png',
+      );
     });
 
     test('存在しないユーザーIDを渡すとExceptionがthrowされる', () async {

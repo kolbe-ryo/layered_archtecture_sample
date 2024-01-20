@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:layered_archtecture_sample/application/usecase/user/user_usecase.dart';
 import 'package:layered_archtecture_sample/presentation/page/home_page.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/email_text_field.dart';
@@ -21,7 +26,7 @@ class SignInButton extends ConsumerWidget with PresentationMixin {
                   email: ref.read(signinEmailControllerProvider).text,
                   password: ref.read(signinPasswordControllerProvider).text,
                 );
-            navigator.pushReplacement(HomePage.route());
+            await navigator.pushReplacement(HomePage.route());
           },
           successMessage: '${ref.read(signinEmailControllerProvider).text} のユーザーでサインインしました',
         );
