@@ -19,7 +19,16 @@ void main() {
     });
   });
   group('状態による表示変更に関するテスト', () {
-    testWidgets('初期表示は投稿ページが選択され表示される', (widgetTester) async {});
+    testWidgets('初期表示は投稿ページが選択され表示される', (widgetTester) async {
+      await widgetTester.pumpWidget(
+        const ProviderScope(
+          child: _HomePageTest(),
+        ),
+      );
+
+      expect(find.widgetWithText(AppBar, IndexMode.list.label), findsNWidgets(1));
+      expect(find.widgetWithText(AppBar, IndexMode.profile.label), findsNothing);
+    });
     testWidgets('プロフィールのBNBをタップするとプロフィールページが表示される', (widgetTester) async {});
   });
   // test('test name', () {});
