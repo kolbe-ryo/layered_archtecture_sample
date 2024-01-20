@@ -6,16 +6,14 @@ import 'package:layered_archtecture_sample/presentation/page/home_page.dart';
 
 void main() {
   group('レイアウトに関するテスト', () {
-    testWidgets('投稿・プロフィールの名称でBNBが表示されていること', (widgetTester) async {
+    testWidgets('投稿・プロフィールアイコンがBNBで表示されていること', (widgetTester) async {
       await widgetTester.pumpWidget(
         const ProviderScope(
           child: _HomePageTest(),
         ),
       );
-      // AppbarとBNBに表示
-      expect(find.text(IndexMode.list.label), findsNWidgets(2));
-      // BNBのみ
-      expect(find.text(IndexMode.profile.label), findsNWidgets(1));
+      expect(find.byIcon(Icons.list), findsOneWidget);
+      expect(find.byIcon(Icons.account_circle), findsOneWidget);
     });
   });
   group('状態による表示変更に関するテスト', () {
@@ -31,7 +29,6 @@ void main() {
     });
     testWidgets('プロフィールのBNBをタップするとプロフィールページが表示される', (widgetTester) async {});
   });
-  // test('test name', () {});
 }
 
 class _HomePageTest extends StatelessWidget {
