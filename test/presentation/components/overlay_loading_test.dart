@@ -8,19 +8,28 @@ import 'package:layered_archtecture_sample/presentation/components/overlay_loadi
 
 void main() {
   group('OverlayLoadingに関するテスト', () {
-    test('ローディング中ではない場合、Indicatorが表示されないこと', () {
-      final providerContainer = ProviderContainer(
+    testWidgets('ローディング中ではない場合、Indicatorが表示されないこと', (widgetTester) async {
+      final testWidget = ProviderScope(
         overrides: [
           overlayLoadingProvider.overrideWith((ref) => false),
         ],
+        child: const _OverlayLoadingOutline(),
       );
+      await widgetTester.pumpWidget(testWidget);
+
+      expect(find.byType(CircularProgressIndicator), findsNothing);
     });
-    test('ローディング中の場合、Indicatorが表示されること', () {
-      final providerContainer = ProviderContainer(
+
+    testWidgets('ローディング中の場合、Indicatorが表示されること', (widgetTester) async {
+      final testWidget = ProviderScope(
         overrides: [
           overlayLoadingProvider.overrideWith((ref) => true),
         ],
+        child: const _OverlayLoadingOutline(),
       );
+      await widgetTester.pumpWidget(testWidget);
+
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
   });
 }
