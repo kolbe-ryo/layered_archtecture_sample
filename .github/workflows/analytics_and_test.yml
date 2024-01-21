@@ -1,11 +1,10 @@
-name: Check and test the source code
+name: Check and Test the source code
 on:
  pull_request:
   branches:
    - main
 jobs:
  test:
-  name: Check the source code
   runs-on: ubuntu-latest
   steps:
    - uses: actions/checkout@v3
@@ -16,5 +15,5 @@ jobs:
      run: flutter pub get
    - name: Linter
      run: flutter analyze
-   - name: Test
+   - name: Unit Test
      run: flutter test
