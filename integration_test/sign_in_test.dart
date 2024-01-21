@@ -55,7 +55,7 @@ void main() {
     expect(find.widgetWithText(AppBar, IndexMode.list.label), findsOneWidget);
   });
 
-  testWidgets('ログイン画面でサインインに失敗し、プロフィールページに遷移', (widgetTester) async {
+  testWidgets('ログイン画面でサインインに失敗し、ログイン画面でスナックバーガ表示される', (widgetTester) async {
     // Appの構築
     await widgetTester.pumpWidget(
       ProviderScope(

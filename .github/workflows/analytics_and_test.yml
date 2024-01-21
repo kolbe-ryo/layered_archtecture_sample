@@ -1,20 +1,33 @@
 name: Check and test the source code
 on:
- pull_request:
-  branches:
-   - main
+  pull_request:
+    branches:
+      - main
 jobs:
- test:
-  name: Check the source code
-  runs-on: ubuntu-latest
-  steps:
-   - uses: actions/checkout@v3
-   - uses: subosito/flutter-action@v2.3.0
-     with:
-      flutter-version: '3.7.8'
-   - name: Install packages
-     run: flutter pub get
-   - name: Linter
-     run: flutter analyze
-   - name: Test
-     run: flutter test
+  test:
+    name: Check the source code
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: subosito/flutter-action@v2.3.0
+          with:
+            flutter-version: '3.7.8'
+        - name: Install packages
+          run: flutter pub get
+        - name: Linter
+          run: flutter analyze
+        - name: Test
+          run: flutter test
+  test:
+    name: Integration Test
+      runs-on: macOS-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: futureware-tech/simulator-action@v3
+          with:
+            model: 'iPhone 14'
+        - uses: subosito/flutter-action@v2.3.0
+          with:
+            flutter-version: '3.7.8'
+        - run: flutter pub get
+        - run: flutter test integration_test
