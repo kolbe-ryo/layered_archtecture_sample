@@ -19,7 +19,7 @@ mixin PresentationMixin {
         message: successMessage,
       );
     } on AppException catch (e) {
-      CustomSnackBar.showSuccess(
+      CustomSnackBar.showFailure(
         scaffoldMessenger,
         message: e.toString(),
       );
