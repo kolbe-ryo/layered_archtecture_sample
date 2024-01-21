@@ -13,6 +13,8 @@ import 'package:layered_archtecture_sample/presentation/page/user/components/ema
 import 'package:layered_archtecture_sample/presentation/page/user/components/password_text_field.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/signin_button.dart';
 
+// 実行はflutter run -t integration_test/**_test.dartのコマンドを使用するとShift + rでホットリロードなど可能なため便利
+// https://qiita.com/allJokin/items/8576ef79710d7e682c2c
 void main() {
   const email = 'test@example.com';
   const password = 'test';
@@ -37,7 +39,6 @@ void main() {
 
     // Email/Passwordを入力する
     await widgetTester.enterText(find.byType(EmailTextField), email);
-    await widgetTester.pump();
     await widgetTester.enterText(find.byType(PasswordTextField), password);
     await widgetTester.pump();
 
