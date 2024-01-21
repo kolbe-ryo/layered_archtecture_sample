@@ -1,33 +1,24 @@
-name: flutter integration test
+name: integration_test
 
 on:
- pull_request:
-  branches:
-   - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  integration_test:
-    strategy:
-      matrix:
-        device:
-          - "iPhone 12 Pro Max (14.2)"
-          - "iPhone 12 (14.2)"
-      fail-fast: false
-    runs-on: macos-latest
+  test:
+    runs-on: macOS-latest
+
     steps:
-      - name: "start simulator"
-        timeout-minutes: 10
-        run: |
-          UDID=$(
-            xcrun instruments -s |
-            awk \
-              -F ' *[][]' \
-              -v 'device=${{ matrix.device }}' \
-              '$1 == device { print $2 }'
-          )
-          xcrun simctl boot "${UDID:?No Simulator with this name found}"
-      - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1
+      - uses: actions/checkout@v4
+
+      - uses: futureware-tech/simulator-action@v3
+        with:
+          model: 'iPhone 14'
+
+      - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-      - run: "flutter drive --target=test_driver/app.dart"
+
+      - run: flutter pub get
+      - run: flutter test integration_test
