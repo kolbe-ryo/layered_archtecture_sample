@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:layered_archtecture_sample/domain/post/post_repository.dart';
 import 'package:layered_archtecture_sample/domain/service/storage_service.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
-import 'package:layered_archtecture_sample/enum/index_mode.dart';
+import 'package:layered_archtecture_sample/presentation/enum/index_mode.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_post_repository.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_storage_service.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_user_repository.dart';

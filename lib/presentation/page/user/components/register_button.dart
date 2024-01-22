@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project imports:
 import 'package:layered_archtecture_sample/application/usecase/user/state/user_provider.dart';
 import 'package:layered_archtecture_sample/application/usecase/user/user_usecase.dart';
-import 'package:layered_archtecture_sample/enum/index_mode.dart';
+import 'package:layered_archtecture_sample/presentation/enum/index_mode.dart';
 import 'package:layered_archtecture_sample/presentation/page/home_page.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/user_image_edit.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/user_text_field.dart';
