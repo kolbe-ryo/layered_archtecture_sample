@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:layered_archtecture_sample/enum/index_mode.dart';
+import 'package:layered_archtecture_sample/presentation/enum/index_mode.dart';
 import 'package:layered_archtecture_sample/presentation/page/home_page.dart';
 
 void main() {

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:layered_archtecture_sample/enum/index_mode.dart';
+import 'package:layered_archtecture_sample/presentation/enum/index_mode.dart';
 import 'package:layered_archtecture_sample/presentation/page/post/post_view_page.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/profile_page.dart';
 
