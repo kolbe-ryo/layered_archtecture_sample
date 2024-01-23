@@ -1,7 +1,5 @@
-// Flutter imports:
-import 'package:flutter/widgets.dart';
-
 // Package imports:
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 
@@ -31,9 +29,12 @@ void main() {
       );
 
     await tester.pumpDeviceBuilder(builder);
+    await tester.pump(const Duration(seconds: 3));
     await screenMatchesGolden(tester, 'SignIn');
 
-    // add this:
+    // riverpodのtimerバグのせいで発生するため下記で暫定対策
+    // https://github.com/rrousselGit/riverpod/issues/1941
+    // 2.4.9にて改修済み
     await tester.pumpWidget(Container());
     await tester.pumpAndSettle();
   });
