@@ -1,10 +1,11 @@
-name: Check and Test the source code
+name: Unit, Widget and Golden Test
 on:
  pull_request:
   branches:
    - main
 jobs:
  test:
+  # ローカルのOSと一致させないとGoldenTestで微妙なレイアウトのズレが発生し、テストに失敗する
   runs-on: macos-latest
   steps:
    - uses: actions/checkout@v3
