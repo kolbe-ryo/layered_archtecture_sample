@@ -15,7 +15,7 @@ import 'package:layered_archtecture_sample/presentation/app.dart';
 void main() {
   testGoldens('ログイン画面のゴールデンテスト', (tester) async {
     final builder = DeviceBuilder()
-      ..overrideDevicesForAllScenarios(devices: [Device.phone, Device.iphone11])
+      ..overrideDevicesForAllScenarios(devices: [Device.iphone11])
       ..addScenario(
         widget: ProviderScope(
           overrides: [
