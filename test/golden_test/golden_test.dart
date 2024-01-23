@@ -29,7 +29,6 @@ void main() {
       );
 
     await tester.pumpDeviceBuilder(builder);
-    await tester.pump(const Duration(seconds: 3));
     await screenMatchesGolden(tester, 'SignIn');
 
     // riverpodのtimerバグのせいで発生するため下記で暫定対策
