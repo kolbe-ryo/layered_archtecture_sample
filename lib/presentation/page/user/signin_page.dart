@@ -31,7 +31,7 @@ class SignInPage extends ConsumerWidget {
             PasswordTextField(
               controller: ref.watch(signinPasswordControllerProvider),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 19),
             const SignInButton(),
             const SizedBox(height: 16),
             const SignUpButton(),
