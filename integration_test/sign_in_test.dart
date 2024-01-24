@@ -4,11 +4,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:layered_archtecture_sample/domain/post/post_repository.dart';
 import 'package:layered_archtecture_sample/domain/service/storage_service.dart';
 import 'package:layered_archtecture_sample/domain/user/user_repository.dart';
-import 'package:layered_archtecture_sample/enum/index_mode.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_post_repository.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_storage_service.dart';
 import 'package:layered_archtecture_sample/infrastructure/mocks/mock_user_repository.dart';
 import 'package:layered_archtecture_sample/presentation/app.dart';
+import 'package:layered_archtecture_sample/presentation/enum/index_mode.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/email_text_field.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/password_text_field.dart';
 import 'package:layered_archtecture_sample/presentation/page/user/components/signin_button.dart';
@@ -24,8 +24,8 @@ void main() {
     await widgetTester.pumpWidget(
       ProviderScope(
         overrides: [
-          userRepositoryProvider.overrideWithValue(MockUserRepository()),
           postRepositoryProvider.overrideWithValue(MockPostRepository()),
+          userRepositoryProvider.overrideWithValue(MockUserRepository()),
           storageServiceProvider.overrideWithValue(MockStorageService()),
         ],
         child: const App(),

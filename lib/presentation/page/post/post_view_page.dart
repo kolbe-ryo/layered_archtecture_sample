@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:layered_archtecture_sample/enum/index_mode.dart';
+import 'package:layered_archtecture_sample/presentation/enum/index_mode.dart';
 import 'package:layered_archtecture_sample/presentation/page/components/post_view.dart';
 import 'package:layered_archtecture_sample/presentation/page/post/post_page.dart';
 
