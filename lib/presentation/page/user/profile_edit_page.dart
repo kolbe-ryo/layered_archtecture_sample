@@ -22,10 +22,10 @@ class ProfileEditPage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('プロフィール更新'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
+      body: const Padding(
+        padding: EdgeInsets.all(16),
         child: Column(
-          children: const [
+          children: [
             UserImageEdit(),
             SizedBox(height: 16),
             UserNameTextField(),

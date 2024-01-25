@@ -25,10 +25,10 @@ class PostPage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('New Post'),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+      body: const SingleChildScrollView(
+        padding: EdgeInsets.all(16),
         child: Column(
-          children: const [
+          children: [
             PostImage(),
             SizedBox(height: 16),
             PostCommentField(),
