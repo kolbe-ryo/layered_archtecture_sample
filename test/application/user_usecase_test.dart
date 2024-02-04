@@ -47,13 +47,10 @@ void main() {
           );
       final uid = provideContainer.read(uidProvider);
       expect(uid, mockUserRepo.mockUserId);
-
-      // TODO(kolbe): ここで一度初期値に戻しているが、戻さない方法があるのか？
       provideContainer.read(uidProvider.notifier).update((state) => null);
     });
   });
 
-  // TODO(kolbe): Implement
   group('SignInに関するテスト', () {
     test('誤ったemail/passwordを渡すと対応する初期値のUIDとUserがstateに保持される', () async {
       try {
