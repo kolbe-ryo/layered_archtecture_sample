@@ -31,7 +31,7 @@ void main() {
       final posts = await providerContainer.read(postUsecaseProvider).fetchAll();
       final sortedList = mockPostRepository.mockPosts.sorted((a, b) => b.createdAt!.compareTo(a.createdAt!));
       final match = const DeepCollectionEquality().equals(posts, sortedList);
-      expect(true, match);
+      expect(match, true);
     });
   });
   group('投稿に関するテスト', () {
